@@ -35,6 +35,6 @@ function start() {
     console.log(high);
     guess = Math.round((low+high)/2);
     console.log(guess);
-    maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${Math.ceil(Math.log2(high-low+1))} tries.`
+    maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${Math.ceil(Math.log2(high-low+1))+1} tries.`
     number.innerHTML = `Is this your number?: ${guess}`;
 };
