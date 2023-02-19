@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>number guesser</title>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Hello, I am the all knowing number guesser.</h1>
+        <p>Can you think of a number I can't guess?</p> <br>
+        <form>
+            Enter the lowbound for your number: <br>
+            <input type="text" id="lowbound"> <br>
+            Enter the highbound for your number: <br>
+            <input type="text" id="highbound"> <br><br>
+        </form>
+        <button onclick="start()">Play!</button>
+        <div id="elements" hidden="hidden">
+            <p id="maxtries"></p>
+            <p id="number"><p>
+            <button onclick="game(this.id)" id="low">Too low</button>
+            <button onclick="game(this.id)" id="right">That's right!</button>
+            <button onclick="game(this.id)" id="high">Too high</button>
+        </div>
+        <p id="realtries"></p>
+    </header>
+</body>
+</html>
