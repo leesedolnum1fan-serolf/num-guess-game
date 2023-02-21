@@ -6,12 +6,16 @@ var temp = 0;
 
 function game(id) {
     if (id === "low") {
-        low = guess;
+        low = guess + 1;
     } else if (id === "high") {
-        high = guess;
+        high = guess - 1;
     } else if (id === "right") {
         elements.hidden = true;
-        realtries.innerHTML = `I got that last one in ${i} tries. I'm a genius.`
+        if (i === 1) {
+            realtries.innerHTML = `I got that last one in ${i} try. I'm a genius.`      
+        } else {
+            realtries.innerHTML = `I got that last one in ${i} tries. I'm a genius.`
+        };
         i = 0;
     };
     guess = Math.round((low+high)/2);
@@ -35,6 +39,10 @@ function start() {
     console.log(high);
     guess = Math.round((low+high)/2);
     console.log(guess);
-    maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${Math.ceil(Math.log2(high-low+1))+1} tries.`
+    if (i === 1) {
+        maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${Math.ceil(Math.log2(high-low+1))} tries.`
+    } else {
+        maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${Math.ceil(Math.log2(high-low+1))} try.`
+    }
     number.innerHTML = `Is this your number?: ${guess}`;
 };
