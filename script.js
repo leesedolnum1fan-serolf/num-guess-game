@@ -27,6 +27,16 @@ function game(id) {
             guess += 1;
         };
     };
+    if (guess === low) {
+        document.getElementById("high").hidden = true;
+    } else {
+        document.getElementById("high").hidden = false;
+    };
+    if (guess === high) {
+        document.getElementById("low").hidden = true;
+    } else {
+        document.getElementById("low").hidden = false;
+    };
     temp = guess;
     if (i === max) {
         elements.hidden = true;
@@ -55,7 +65,21 @@ function start() {
         return
     };
     elements.hidden = false;
+    console.log(low)
+    console.log(high)
     guess = Math.round((low+high)/2);
+    console.log(guess)
+    if (guess === low) {
+        document.getElementById("high").hidden = true;
+    } else {
+        document.getElementById("high").hidden = false;
+    };
+    if (guess === high) {
+        document.getElementById("low").hidden = true;
+    } else {
+        document.getElementById("low").hidden = false;
+    };
+    console.log(guess)
     max = Math.ceil(Math.log2(high-low+1));
     if (max < 2) {
         max += 1;
@@ -66,4 +90,12 @@ function start() {
         maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${max} tries.`
     };
     number.innerHTML = `Is this your number?: ${guess}`;
+    if (i === max) {
+        elements.hidden = true;
+          if (i === 1) {
+            realtries.innerHTML = `Your number was ${guess}. <br> I got that one in ${i} try.`;   
+        } else {
+            realtries.innerHTML = `Your number was ${guess}. <br> I got that one in ${i} tries.`;
+        };
+    };
 };
