@@ -51,6 +51,7 @@ function game(id) {
 };
 
 function start() {
+    elements.hidden = true;
     i = 1;
     low = parseInt(lowbound.value);
     high = parseInt(highbound.value);
