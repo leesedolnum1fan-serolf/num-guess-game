@@ -4,10 +4,9 @@ var max;
 var low;
 var i = 1;
 var temp = 0;
-var lowElement = document.getElementById("lowbound").value;
-var highElement = document.getElementById("highbound").value;
 
 function game(id) {
+    i += 1;
     if (id === "low") {
         low = guess + 1;
     } else if (id === "high") {
@@ -39,35 +38,32 @@ function game(id) {
     } else {
         number.innerHTML = `Is this your number?: ${guess}`;    
     };
-    i += 1;
 };
 
 function start() {
     i = 1;
-    if (lowElement > highElement) {
+    low = parseInt(lowbound.value);
+    high = parseInt(highbound.value);
+    if (low > high) {
         alert("I'll swap those for you ;)")
-        highElement = lowElement;
-        lowElement = highElement;
-    } else if (parseInt(lowElement+highElement) === NaN) {
-        alert("Please enter a integer.")
+        lowbound.value = high;
+        highbound.value = low;
+        low = parseInt(lowbound.value);
+        high = parseInt(highbound.value);
+    } else if (isNaN(low+high)) {
+        alert("Please only enter numbers.")
         return
-    } else {
-        low = parseInt(lowElement)
-        high = parse(highElement)
     };
-    elements.hidden = false; 
-    console.log(low);
-    console.log(high);
+    elements.hidden = false;
     guess = Math.round((low+high)/2);
-    console.log(guess);
     max = Math.ceil(Math.log2(high-low+1));
     if (max < 2) {
         max += 1;
     };
-    if (i === 1) {
-        maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${max} tries.`
-    } else {
+    if (max === 1) {
         maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${max} try.`
+    } else {
+        maxtries.innerHTML = `HA! Childs play. This shouldn't take more than ${max} tries.`
     };
     number.innerHTML = `Is this your number?: ${guess}`;
 };
