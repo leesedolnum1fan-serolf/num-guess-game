@@ -2,11 +2,10 @@ var guess;
 var high;
 var max;
 var low;
-var i = 0;
+var i = 1;
 var temp = 0;
 
 function game(id) {
-    i += 1;
     if (id === "low") {
         low = guess + 1;
     } else if (id === "high") {
@@ -38,6 +37,7 @@ function game(id) {
         document.getElementById("low").hidden = false;
     };
     temp = guess;
+    i+=1;
     if (i === max) {
         elements.hidden = true;
           if (i === 1) {
@@ -52,7 +52,7 @@ function game(id) {
 
 function start() {
     elements.hidden = true;
-    i = 0;
+    i = 1;
     low = parseInt(lowbound.value);
     high = parseInt(highbound.value);
     if (low > high) {
