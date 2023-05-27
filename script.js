@@ -37,7 +37,9 @@ function game(id) {
         document.getElementById("low").hidden = false;
     };
     temp = guess;
-    i+=1;
+    if (!(id == "right")) {
+        i+=1;
+    };
     if (i === max) {
         elements.hidden = true;
           if (i === 1) {
