@@ -19,7 +19,7 @@ function game(id) {
         };
     };
     guess = Math.round((low+high)/2);
-    if (temp === guess) {
+    if (temp === guess && !(id == "right")) {
         if (guess > ((low+high)/2)) {
             guess -= 1;
         } else {
